@@ -100,6 +100,8 @@ def nueva_orden(symbol, order_type, quantity, price, side, leverage):
         else:
             price = float(order[0]["price"])
         
+        print(f"\nOrden {order_type.upper()}-{side} de {order[0]['qty']} {symbol.split('USDT')[0]}  colocada en {price}. ID:", order[0]["orderId"])
+        
         return {
                 "orderId": order[0]["orderId"],
                 "price": price,
@@ -368,7 +370,7 @@ def verificar_conexion_internet():
 async def sl_auto(symbol, perdida_usdt):
     orderId = ""
     sl_100001 = False
-    while True:
+    while operar:
         try:
             if verificar_conexion_internet():
                 # Ordenes abiertas y posiciones
@@ -424,6 +426,7 @@ async def sl_auto(symbol, perdida_usdt):
                 # ------------------------------------------------------------
                 if orderId != "":
                     if obtener_ordenes(symbol, orderId)[0]['orderStatus'] == "Filled":
+                        operar = False
                         cancelar_orden(symbol, orderId="")
                         orderId = ""
                         print("\n😖 🔴 💥 STOP LOSS ALCANZADO 💥 🔴 😖")
@@ -443,7 +446,7 @@ async def tp_auto(symbol, tipo, distancia_porcentual):
         tp_side = "Buy"
     if tipo.upper() == "SHORT":
         tp_side = "Sell"
-    while True:
+    while operar:
         try:
             if verificar_conexion_internet():
                 # Ordenes y posicion
@@ -486,6 +489,7 @@ async def tp_auto(symbol, tipo, distancia_porcentual):
                 # ------------------------------------------------------------
                 if orderId != "":
                     if obtener_ordenes(symbol, orderId)[0]['orderStatus'] == "Filled":
+                        operar = False
                         cancelar_orden(symbol, orderId="")
                         orderId = ""
                         print("\n🏆 🚀 🔥 TAKE PROFIT ALCANZADO 🔥 🚀 🏆")
@@ -526,7 +530,7 @@ async def cardiaco(symbol, tipo, precio, monto):
         side = "Buy"
     if tipo.upper() == "SHORT":
         side = "Sell"
-    while True:
+    while operar:
         try:
             if verificar_conexion_internet():
                 conexion = True
@@ -632,8 +636,8 @@ print("  1. Cambia a margen cruzado\n  2. Fondea al menos $50 USDT en la cuenta\
 credenciales = False
 while not credenciales:
     try:
-        api_key = input("\nIntroduce tu Api Key de Bybit: \n-> ")
-        api_secret = input("\nIntroduce tu Api Secret de Bybit: \n-> ")
+        api_key = "1XJt60yrfh4sSwU45Q" #input("\nIntroduce tu Api Key de Bybit: \n-> ")
+        api_secret = "GyQyHOe8SRKje2g4WN7JxEZrfIqy0sOqtjdP" #input("\nIntroduce tu Api Secret de Bybit: \n-> ")
         # ----------------------
 
         # Definir la session para Bybit
