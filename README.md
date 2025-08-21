@@ -24,7 +24,7 @@ En caso no te funcione con doble click:
 4. Presiona ENTER.
 
 🛠 PRIMERA VEZ USANDO BOT:
-1. Instala Python si no lo tienes instalado (selecciona las casilla de abajo, añadir Python al PATH si lo instalas por primera vez).
+1. Instala Python si no lo tienes instalado (selecciona las casilla de abajo, permisos del administrador y añadir Python al PATH).
 2. Abre la terminal (CMD en Windows o Terminal en Mac/Linux).
 3. Escribe el comando: pip install pybit
 4. Presiona ENTER.
