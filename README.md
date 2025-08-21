@@ -14,7 +14,8 @@ Se recomienda no modificarlos hasta comprender muy bien la estrategia.
 
 🚀 CÓMO USAR EL BOT:
 1. Fácil, copia el contenido del archivo cardiaco_bybit.py, pégalo en un bloc de notas o cualquier editor de texto plano y guárdalo donde quieras con el nombre cardiaco.py.
-2. Luego abrelo con doble click y listo a operar!
+2. Luego abrelo con doble click
+3. Listo a operar!
 
 En caso no te funcione con doble click:
 1. Abre la terminal (Consola CMD en Windows o Terminal en Mac/Linux).
