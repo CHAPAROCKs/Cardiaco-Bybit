@@ -16,7 +16,7 @@ Es un bot semi-automático, ya que requiere asistencia para la colocación de la
 3. Escribe el comando: pip install pybit
 4. Presiona ENTER.
 
-⚠️ Consideraciones
+⚠️ Consideraciones:
 Este bot aún está en desarrollo y ha sido creado para la comunidad de El Gafas Trading, con la intención de obtener feedback constructivo para mejorar su funcionamiento según las necesidades de la comunidad.
 
 Si perteneces a la comunidad, no dudes en compartir tu opinión y propuestas para mejorarlo entre todos.
