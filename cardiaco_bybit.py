@@ -633,7 +633,7 @@ credenciales = False
 while not credenciales:
     try:
         api_key = input("\nIntroduce tu Api Key de Bybit: \n-> ")
-        api_secret = nput("\nIntroduce tu Api Secret de Bybit: \n-> ")
+        api_secret = input("\nIntroduce tu Api Secret de Bybit: \n-> ")
         # ----------------------
 
         # Definir la session para Bybit
