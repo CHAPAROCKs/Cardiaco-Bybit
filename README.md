@@ -14,7 +14,7 @@ Se recomienda no modificarlos hasta comprender muy bien la estrategia.
 
 ANTES DE USAR EL BOT:
 1. Debes tener instalado Python en tu equipo
-2. Debes tener instalada la librería de Bybit 'pybit'
+2. Debes tener instalada la librería de Bybit 'pybit'.
 
 🚀 CÓMO USAR EL BOT:
 1. Fácil, descarga el archivo cardiaco_bybit.py https://github.com/CHAPAROCKs/Cardiaco-Bybit/blob/main/cardiaco_bybit.py.
@@ -24,7 +24,7 @@ ANTES DE USAR EL BOT:
 En caso no te funcione con doble click:
 1. Abre la terminal (Consola CMD en Windows o Terminal en Mac/Linux).
 2. Escribe la palabra python (o python3) y presiona espacio.
-3. Arrastra el archivo cardiaco_bybit,py que descargaste y suéltalo directamente sobre la terminal.
+3. Arrastra el archivo cardiaco_bybit.py que descargaste y suéltalo directamente sobre la terminal.
 4. Presiona ENTER.
 
 🛠 PRIMERA VEZ USANDO BOT:
