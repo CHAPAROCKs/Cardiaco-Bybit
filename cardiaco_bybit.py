@@ -368,8 +368,10 @@ def verificar_conexion_internet():
 # FUNCIÓN STOP AUTOMATICO
 # -----------------------
 async def sl_auto(symbol, perdida_usdt):
+    global operar
     orderId = ""
     sl_100001 = False
+    sl_colocado = False
     while operar:
         try:
             if verificar_conexion_internet():
@@ -418,6 +420,11 @@ async def sl_auto(symbol, perdida_usdt):
                         precio_sl = precio_promedio + perdida_usdt/cantidad_total
                     if abs(precio_sl - precio_sl_actual)/precio_sl > 5*comision/100:
                         sl = stop_loss(symbol=symbol, positionSide=positionSide, stopPrice=precio_sl, slSize="")
+                        if not("error" in sl) and not sl_colocado:
+                            sl_colocado = True
+                            print(f"\nStop Loss colocado en {sl['price']}")
+                        if pos_tamaño == 0:
+                            sl_colocado = False
                         if sl == "10001":
                             sl_100001 = True
                             print(f"\nSL muy bajo para colocarlo en {precio_sl}")
@@ -489,7 +496,6 @@ async def tp_auto(symbol, tipo, distancia_porcentual):
                 # ------------------------------------------------------------
                 if orderId != "":
                     if obtener_ordenes(symbol, orderId)[0]['orderStatus'] == "Filled":
-                        operar = False
                         cancelar_orden(symbol, orderId="")
                         orderId = ""
                         print("\n🏆 🚀 🔥 TAKE PROFIT ALCANZADO 🔥 🚀 🏆")
@@ -673,6 +679,7 @@ if capital_disponible < capital_minimo:
     print("\nLO SIENTO. CAPITAL MUY BAJO PARA OPERAR CARDIACO")
     print("DEBES TENER AL MENOS $50 USDT DISPONIBLES EN TU CUENTA")
     operar = False
+    exit()
 # ----------------------------------------------------------
     
 # Solicitar datos
